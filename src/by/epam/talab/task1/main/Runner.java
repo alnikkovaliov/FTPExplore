@@ -1,6 +1,7 @@
 package by.epam.talab.task1.main;
 import java.io.IOException;
 
+import by.epam.talab.task1.action.Connector;
 import it.sauronsoftware.ftp4j.*;
 
 public class Runner {
@@ -10,7 +11,7 @@ public class Runner {
 			FTPIllegalReplyException, FTPException, 
 			FTPDataTransferException, FTPAbortedException, FTPListParseException {
 		
-		FTPClient client = new FTPClient();
+		FTPClient client = Connector.getInstance();
 
 		client.connect("ftp.mozilla.org");
 		client.login("anonymous", "ftp4j");
