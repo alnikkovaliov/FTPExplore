@@ -31,6 +31,7 @@ public class Runner {
 		fileArray = client.list();
 		for (int i = 0; i < fileArray.length; i++) {
 			System.out.println(fileArray[i].getName().toString());
+			
 		}
 				
 		client.disconnect(true);
