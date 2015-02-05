@@ -15,14 +15,16 @@ public final class Downloader {
 	private Downloader() {
 	}
 	
-	public static void downloadFile(FTPClient client, String filename, String destination)
+	public static boolean downloadFile(FTPClient client, String filename, String destination)
 			throws IllegalStateException, FileNotFoundException, 
 			IOException, FTPIllegalReplyException, FTPException, 
 			FTPDataTransferException, FTPAbortedException {
 		
 		File file = new File(destination);
+		file.mkdir();
 		file.mkdirs();
 		client.download(filename, file);
 		
+		return file.mkdir() && file.mkdirs();
 	} 
 }
