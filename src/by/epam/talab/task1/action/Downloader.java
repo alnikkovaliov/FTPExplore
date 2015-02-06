@@ -15,16 +15,22 @@ public final class Downloader {
 	private Downloader() {
 	}
 	
-	public static boolean downloadFile(FTPClient client, String filename, String destination)
+	public static boolean downloadFile(FTPClient client, String filename, String destinationFolder)
 			throws IllegalStateException, FileNotFoundException, 
 			IOException, FTPIllegalReplyException, FTPException, 
 			FTPDataTransferException, FTPAbortedException {
 		
-		File file = new File(destination);
-		file.mkdir();
-		file.mkdirs();
-		client.download(filename, file);
+		File file = new File(destinationFolder);
 		
-		return file.mkdir() && file.mkdirs();
+		if (!file.exists()) {
+			file.mkdir(); 
+			file.mkdirs(); 
+		} else if (file.isDirectory()) {
+			client.download(filename, new File(destinationFolder, filename));
+		} else {
+			throw new IllegalArgumentException("There is a file, which has a folder name!");
+		}
+		
+		return true;
 	} 
 }
