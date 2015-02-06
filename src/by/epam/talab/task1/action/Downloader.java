@@ -28,7 +28,7 @@ public final class Downloader {
 		} else if (file.isDirectory()) {
 			client.download(filename, new File(destinationFolder, filename));
 		} else {
-			throw new IllegalArgumentException("There is a file, which has a folder name!");
+			throw new IllegalArgumentException("There is a file with destinationFolder name!");
 		}
 		
 		return true;
