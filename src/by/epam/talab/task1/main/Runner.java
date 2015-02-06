@@ -1,8 +1,7 @@
 package by.epam.talab.task1.main;
 
-import java.io.File;
-import java.io.IOException;
 
+import java.io.IOException;
 import by.epam.talab.task1.action.Printer;
 import by.epam.talab.task1.action.Tester;
 import it.sauronsoftware.ftp4j.*;
