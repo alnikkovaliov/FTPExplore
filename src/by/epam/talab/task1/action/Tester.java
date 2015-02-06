@@ -13,8 +13,26 @@ public final class Tester {
 		FTPClient client = Connector.getInstance();
 		client.connect(ftpLink);
 		client.login(login, passPhrase);
-		
+	
 		return client;
 	}
+	
+	public static FTPClient disconnectFTP(FTPClient client) 
+			throws IllegalStateException, IOException, FTPIllegalReplyException, 
+			FTPException {
+		
+		client.logout();
+		client.disconnect(true);
+		return client;
+	}
+	
+	public static FTPClient breakFTP(FTPClient client) 
+			throws IllegalStateException, IOException, 
+			FTPIllegalReplyException, FTPException {
+		
+		client.disconnect(false);
+		return client;
+	}
+	
 	
 }
