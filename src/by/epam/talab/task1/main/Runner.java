@@ -37,17 +37,5 @@ public class Runner {
 //			
 //		}
 		
-		String destinationFolder = "./resources";
-		String filename = "index.html";
-		
-		File file = new File(destinationFolder);
-		boolean f1, f2;
-		f1 = file.mkdir(); f2 = file.mkdirs();
-		 
-		client.download(filename, new File(destinationFolder, filename));
-			
-		client.disconnect(true);
-		
 	}
-
 }
